@@ -58,8 +58,7 @@ module Clerk
       end
     end
 
-    def initialize(app)
-      @app = app
+    def initialize()
     end
 
     def call(env)
@@ -132,12 +131,14 @@ module Clerk
     def signed_in(claims, token)
       @env["clerk"] = ProxyV2.new(session_claims: claims, session_token: token)
 
-      @app.call(@env)
+      # Disable app call as it'll be inited in controller
+      # @app.call(@env)
     end
 
     # Outcome B
     def signed_out
-      @app.call(@env)
+      # Disable app call as it'll be inited in controller
+      # @app.call(@env)
     end
 
     # Outcome C

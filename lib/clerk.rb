@@ -25,6 +25,7 @@ module Clerk
   end
 end
 
-if defined?(::Rails)
-  require_relative "clerk/railtie"
-end
+# Disable auto-injection of the middleware
+# if defined?(::Rails)
+#   require_relative "clerk/railtie"
+# end
